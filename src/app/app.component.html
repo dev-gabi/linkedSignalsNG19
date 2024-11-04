@@ -1,0 +1,9 @@
+<h2>Add name:</h2>
+<input type="text" #name><br />
+<button (click)="addName(name.value)">Add</button>
+<ul>
+
+  @for(name of $names();track name){
+  <li>name</li>
+  }
+</ul>
