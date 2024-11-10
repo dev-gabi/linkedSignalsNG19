@@ -1,9 +1,18 @@
-<h2>Add name:</h2>
-<input type="text" #name><br />
-<button (click)="addName(name.value)">Add</button>
-<ul>
+<nav>
+  @for(album of $albums();track album){
+  <button (click)="onAlbumClick(album)">{{album.title}}</button>
 
-  @for(name of $names();track name){
-  <li>name</li>
+  }
+  <button (click)="onClear()">Clear</button>
+</nav>
+
+@if($relatedPhotos()){
+<ul>
+  @for(photo of $relatedPhotos();track photo){
+  <li><img [src]="photo.thumbnailUrl" [alt]="photo.title" /></li>
   }
 </ul>
+}
+<div>
+
+</div>

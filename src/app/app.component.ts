@@ -1,17 +1,24 @@
-import { Component, linkedSignal, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { DataService } from '../data.service';
+import { Album } from '../models/album.model';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet],
+    imports: [],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
 export class AppComponent {
-    $names = signal<string[]>([]);
-    $namesCount = linkedSignal(()=> this.$names().length);
 
-    addName(name:string){
-      this.$names.update(names=>[...names, name]);S
-    }
+  dataService = inject(DataService);
+  $albums = this.dataService.$albums;
+  $relatedPhotos = this.dataService.$relatedPhotos();
+
+  onAlbumClick(album:Album){
+    this.dataService.selectAlbum(album);
+  }
+
+  onClear(){
+    this.dataService.clearSelectedAlbum()
+  }
 }

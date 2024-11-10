@@ -1,0 +1,12 @@
+button {
+    margin: 2rem;
+    border-radius: 5rem;
+    background-color: rgb(233, 151, 92);
+    padding: 3px;
+    font-size: 1rem;
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
