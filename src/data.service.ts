@@ -26,11 +26,6 @@ readonly albumsData = rxResource({
   loader:({request})=>this.setReletedPhotos(request.id)
 })
 
- readonly selectedPhotoTitle = rxResource({
-  request:()=>(this.$selectedAlbum()),
-  loader:({request})=>this.setReletedPhotos(request.id)
-})
-
 selectAlbum(album:Album){
   this.$selectedAlbum.set(album);
 }
